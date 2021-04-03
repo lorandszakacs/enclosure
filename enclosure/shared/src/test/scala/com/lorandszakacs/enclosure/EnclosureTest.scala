@@ -52,14 +52,14 @@ final class EnclosureTest extends FunSuite {
   private def testEnclosure(enc: Enclosure)(expParam: String)(implicit loc: munit.Location): Unit = {
     val expected = s"$currentPackage.$expParam"
     assertEquals(
-      obtained = enc.name,
+      obtained = enc.module,
       expected = expected,
       clue     = s"""|+++++++++++++++++++++++++++++++++++
                      |
                      |      expParam = $expParam
                      |      expected = $expected
                      |     
-                     |      received = ${enc.name}
+                     |      received = ${enc.module}
                      |
                      |------------------------------------
                      |""".stripMargin

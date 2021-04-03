@@ -24,13 +24,13 @@ final class PackageLevelEnclosureTest extends FunSuite {
 
   test("PackageLevelEnclosure") {
     assertEquals(
-      obtained = packageLevelEnclosure.name,
+      obtained = packageLevelEnclosure.module,
       expected = currentPackage,
       clue     = s"""|+++++++++++++++++++++++++++++++++++
                      |
                      |      expected = $currentPackage
                      |     
-                     |      received = ${packageLevelEnclosure.name}
+                     |      received = ${packageLevelEnclosure.module}
                      |
                      |------------------------------------
                      |""".stripMargin
