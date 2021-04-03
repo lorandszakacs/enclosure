@@ -30,7 +30,7 @@ Similar in usage to [`munit.Location`](https://github.com/scalameta/munit/blob/m
 
 ```scala
 package myapp
-import com.lorandszakacs.enclosure.
+import com.lorandszakacs.enclosure.Enclosure
 
 object Printer {
   def locatedPrintln(s: String)(implicit enc: Enclosure): Unit =  {
