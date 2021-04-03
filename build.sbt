@@ -56,7 +56,7 @@ ThisBuild / spiewakCiReleaseSnapshots := false
 ThisBuild / spiewakMainBranches       := List("main")
 ThisBuild / Test / publishArtifact    := false
 
-ThisBuild / scalaVersion       := Scala3RC1
+ThisBuild / scalaVersion       := Scala213
 ThisBuild / crossScalaVersions := List(Scala3RC1, Scala213, Scala212)
 
 //required for binary compat checks

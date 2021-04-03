@@ -16,4 +16,6 @@
 
 package com.lorandszakacs.enclosure
 
-val packageLevelEnclosure = Enclosure.generateEnclosure
+trait Module {
+  
+}

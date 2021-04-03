@@ -14,14 +14,20 @@
  * limitations under the License.
  */
 
-package com.lorandszakacs.enclosure
+package com.lorandszakacs.enclosure.testing
+
+import com.lorandszakacs.enclosure.Enclosure
+
+object Summoner {
+  def summon(implicit enc: Enclosure): Enclosure = enc
+}
 
 object TopLevelObjectEnclosure {
-  val enclosure: Enclosure = Enclosure.generateEnclosure
+  val enclosure: Enclosure = Summoner.summon
 }
 
 class TopLevelClassEnclosure {
-  val enclosure: Enclosure = Enclosure.generateEnclosure
+  val enclosure: Enclosure = Summoner.summon
 }
 
 object NestedClassInObjectEnclosure {
@@ -29,7 +35,7 @@ object NestedClassInObjectEnclosure {
   val enclosure = new NestedClass().enclosure
 
   private class NestedClass {
-    val enclosure: Enclosure = Enclosure.generateEnclosure
+    val enclosure: Enclosure = Summoner.summon
   }
 }
 
@@ -38,7 +44,7 @@ class NestedClassInClassEnclosure {
   val enclosure = new NestedClass().enclosure
 
   private class NestedClass {
-    val enclosure: Enclosure = Enclosure.generateEnclosure
+    val enclosure: Enclosure = Summoner.summon
   }
 }
 
@@ -47,8 +53,20 @@ object NestedAnonymousClassEnclosure {
   val enclosure = (new NestedTrait {}).enclosure
 
   private sealed trait NestedTrait {
-    val enclosure: Enclosure = Enclosure.generateEnclosure
+    val enclosure: Enclosure = Summoner.summon
   }
+}
+
+case class CaseClassEnclosure() {
+  val enclosure: Enclosure = Summoner.summon
+}
+
+class ParameterizedClassEnclosure[T] {
+  val enclosure: Enclosure = Summoner.summon
+}
+
+class HigherKindParameterizedClassEnclosure[F[_]] {
+  val enclosure: Enclosure = Summoner.summon
 }
 
 object NestedMethodEnclosure {
@@ -56,10 +74,16 @@ object NestedMethodEnclosure {
   val enclosure1 = nestedMethod1("someString")
 
   private def nestedMethod0(): Enclosure = {
-    Enclosure.generateEnclosure
+    Summoner.summon
   }
 
   private def nestedMethod1(p1: String): Enclosure = {
-    Enclosure.generateEnclosure
+    //we do this to get rid of unused param warning. Once scala 2.12 support is dropped, we can add the nowarn annotation instead
+    val opt = for {
+      _   <- Option(p1.toString())
+      enc <- Option(Summoner.summon)
+    } yield enc
+    opt.get
+
   }
 }

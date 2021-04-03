@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.lorandszakacs.enclosure
+package com.lorandszakacs.enclosure.testing
 
 import munit.FunSuite
+import com.lorandszakacs.enclosure.Enclosure
 
 final class EnclosureTest extends FunSuite {
 
@@ -40,26 +41,44 @@ final class EnclosureTest extends FunSuite {
     testEnclosure(NestedAnonymousClassEnclosure.enclosure)("NestedAnonymousClassEnclosure.NestedTrait")
   }
 
+  test("CaseClassEnclosure") {
+    testEnclosure(CaseClassEnclosure().enclosure)("CaseClassEnclosure")
+  }
+
+  test("ParameterizedClassEnclosure") {
+    testEnclosure(new ParameterizedClassEnclosure[Nothing]().enclosure)("ParameterizedClassEnclosure")
+  }
+
+  test("HigherKindParameterizedClassEnclosure") {
+    testEnclosure(new HigherKindParameterizedClassEnclosure[List]().enclosure)("HigherKindParameterizedClassEnclosure")
+  }
+
+  test("packageLevelEnclosure") {
+    testEnclosureFullyQualified(packageLevelEnclosure)(currentPackage)
+  }
+
   test("NestedMethodEnclosure") {
-    testEnclosure(NestedMethodEnclosure.enclosure0)("NestedMethodEnclosure.nestedMethod0")
-    testEnclosure(NestedMethodEnclosure.enclosure1)("NestedMethodEnclosure.nestedMethod1")
+    testEnclosure(NestedMethodEnclosure.enclosure0)("NestedMethodEnclosure")
+    testEnclosure(NestedMethodEnclosure.enclosure1)("NestedMethodEnclosure")
   }
 
   //---------------------------------------------------------------------------
 
-  private val currentPackage: String = "com.lorandszakacs.enclosure"
+  private lazy val currentPackage: String = "com.lorandszakacs.enclosure.testing"
 
   private def testEnclosure(enc: Enclosure)(expParam: String)(implicit loc: munit.Location): Unit = {
     val expected = s"$currentPackage.$expParam"
+    testEnclosureFullyQualified(enc)(expected)
+  }
+
+  private def testEnclosureFullyQualified(enc: Enclosure)(expected: String)(implicit loc: munit.Location): Unit = {
     assertEquals(
-      obtained = enc.module,
+      obtained = enc.fullModuleName,
       expected = expected,
       clue     = s"""|+++++++++++++++++++++++++++++++++++
                      |
-                     |      expParam = $expParam
-                     |      expected = $expected
-                     |     
-                     |      received = ${enc.module}
+                     |      expected = $expected     
+                     |      received = ${enc.fullModuleName}
                      |
                      |------------------------------------
                      |""".stripMargin
