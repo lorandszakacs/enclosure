@@ -53,6 +53,12 @@ final class EnclosureTest extends FunSuite {
     testEnclosure(new HigherKindParameterizedClassEnclosure[List]().enclosure)("HigherKindParameterizedClassEnclosure")
   }
 
+  test("EnclosureAsClassParam") {
+    testEnclosureFullyQualified(new EnclosureAsClassParam().enclosure)(
+      s"$currentPackage.${this.getClass().getSimpleName()}"
+    )
+  }
+
   test("packageLevelEnclosure") {
     testEnclosureFullyQualified(packageLevelEnclosure)(currentPackage)
   }

@@ -69,6 +69,8 @@ class HigherKindParameterizedClassEnclosure[F[_]] {
   val enclosure: Enclosure = Summoner.summon
 }
 
+class EnclosureAsClassParam(implicit val enclosure: Enclosure)
+
 object NestedMethodEnclosure {
   val enclosure0 = nestedMethod0()
   val enclosure1 = nestedMethod1("someString")
