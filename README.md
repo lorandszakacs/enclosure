@@ -4,7 +4,7 @@
 
 This library is published for Scala 3-0-0-RC2, 3-0-0-RC1, 2.13, 2.12, both on the JVM, and JS platforms.
 
-### sprout
+### enclosure
 
 ```scala
 libraryDependencies ++= "com.lorandszakacs" %% "enclosure" % "0.0.1"
