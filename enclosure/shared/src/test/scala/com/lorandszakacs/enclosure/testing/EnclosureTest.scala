@@ -19,7 +19,7 @@ package com.lorandszakacs.enclosure.testing
 import munit.FunSuite
 import com.lorandszakacs.enclosure.Enclosure
 
-final class EnclosureTest extends FunSuite {
+class EnclosureTest extends FunSuite {
 
   test("TopLevelObjectEnclosure") {
     testEnclosure(TopLevelObjectEnclosure.enclosure)("TopLevelObjectEnclosure")
@@ -70,14 +70,14 @@ final class EnclosureTest extends FunSuite {
 
   //---------------------------------------------------------------------------
 
-  private lazy val currentPackage: String = "com.lorandszakacs.enclosure.testing"
+  protected lazy val currentPackage: String = "com.lorandszakacs.enclosure.testing"
 
-  private def testEnclosure(enc: Enclosure)(expParam: String)(implicit loc: munit.Location): Unit = {
+  protected def testEnclosure(enc: Enclosure)(expParam: String)(implicit loc: munit.Location): Unit = {
     val expected = s"$currentPackage.$expParam"
     testEnclosureFullyQualified(enc)(expected)
   }
 
-  private def testEnclosureFullyQualified(enc: Enclosure)(expected: String)(implicit loc: munit.Location): Unit = {
+  protected def testEnclosureFullyQualified(enc: Enclosure)(expected: String)(implicit loc: munit.Location): Unit = {
     assertEquals(
       obtained = enc.fullModuleName,
       expected = expected,

@@ -58,7 +58,7 @@ object EnclosureMacros {
 
     private def enclosingOwner: Symbol = Symbol.spliceOwner
 
-    @tailrec private def fullNameFromSymbol(sym: Symbol): String = {
+    private def fullNameFromSymbol(sym: Symbol): String = {
       val flags = sym.flags
       if (flags.is(Flags.Package)) {
         sym.fullName
@@ -66,7 +66,7 @@ object EnclosureMacros {
       else if (sym.isClassDef) {
         if (flags.is(Flags.Module)) {
           if (sym.name == "package$") {
-            fullNameFromSymbol(s.owner)
+            fullNameFromSymbol(sym.owner)
           }
           else {
             val chomped = sym.name.stripSuffix("$")

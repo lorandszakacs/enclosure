@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package com.lorandszakacs.enclosure.testing
+package com.lorandszakacs.enclosure
 
-import com.lorandszakacs.enclosure.Enclosure
+package object testing {
+  import com.lorandszakacs.enclosure.Enclosure
 
-val topLevelEnclosureVal: Enclosure = Summoner.summon
+  val packageLevelEnclosure: Enclosure = Summoner.summon
 
-def topLevelEnclosureDef: Enclosure = Summoner.summon
-
-def topLevelEnclosureSummonerDef(implicit enc: Enclosure): Enclosure = enc
+}

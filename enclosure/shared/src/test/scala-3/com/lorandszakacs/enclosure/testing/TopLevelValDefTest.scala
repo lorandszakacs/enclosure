@@ -14,10 +14,21 @@
  * limitations under the License.
  */
 
-package com.lorandszakacs.enclosure
+package com.lorandszakacs.enclosure.testing
 
-package object testing {
-  import com.lorandszakacs.enclosure.Enclosure
+import scala.language.adhocExtensions
 
-  val packageLevelEnclosure: Enclosure = Summoner.summon
+class TopLevelValDefTest extends EnclosureTest {
+
+  test("topLevelEnclosureVal") {
+    testEnclosureFullyQualified(topLevelEnclosureVal)(currentPackage)
+  }
+
+  test("topLevelEnclosureDef") {
+    testEnclosureFullyQualified(topLevelEnclosureDef)(currentPackage)
+  }
+
+  test("topLevelEnclosureSummonerDef") {
+    testEnclosure(topLevelEnclosureSummonerDef)(this.getClass.getSimpleName)
+  }
 }
