@@ -26,6 +26,14 @@ class EnclosureTest extends EnclosureTestSuite {
     testEnclosure(new TopLevelClassEnclosure().enclosure)("TopLevelClassEnclosure")
   }
 
+  test("TopLevelTraitEnclosure") {
+    testEnclosure(new TopLevelTraitEnclosure {}.enclosure)("TopLevelTraitEnclosure")
+  }
+
+  test("TopLevelTraitEnclosureWithCompanion") {
+    testEnclosure(new TopLevelTraitEnclosureWithCompanion {}.enclosure)("TopLevelTraitEnclosureWithCompanion")
+  }
+
   test("TopLevelSubClassEnclosure") {
     testEnclosure(new TopLevelSubClassEnclosure().enclosure)("TopLevelClassEnclosure")
     testEnclosure(new TopLevelSubClassEnclosure().subEnclosure)("TopLevelSubClassEnclosure")
@@ -39,8 +47,20 @@ class EnclosureTest extends EnclosureTestSuite {
     testEnclosure(new NestedClassInClassEnclosure().enclosure)("NestedClassInClassEnclosure.NestedClass")
   }
 
-  test("NestedAnonymousClassEnclosure") {
-    testEnclosure(NestedAnonymousClassEnclosure.enclosure)("NestedAnonymousClassEnclosure.NestedTrait")
+  test("NestedAnonymousTraitInClassEnclosure") {
+    testEnclosure(NestedAnonymousTraitInClassEnclosure.enclosure)("NestedAnonymousTraitInClassEnclosure.NestedTrait")
+  }
+
+  test("NestedClassInClassInObjectEnclosure") {
+    testEnclosure(NestedClassInClassInObjectEnclosure.enclosure)(
+      "NestedClassInClassInObjectEnclosure.NestedClass.NestedClassInClass"
+    )
+  }
+
+  test("NestedObjectInObjectEnclosure") {
+    testEnclosure(NestedObjectInObjectEnclosure.ObjectInObject.enclosure)(
+      "NestedObjectInObjectEnclosure.ObjectInObject"
+    )
   }
 
   test("CaseClassEnclosure") {

@@ -30,6 +30,16 @@ class TopLevelClassEnclosure {
   val enclosure: Enclosure = Summoner.summon
 }
 
+trait TopLevelTraitEnclosure {
+  val enclosure: Enclosure = Summoner.summon
+}
+
+trait TopLevelTraitEnclosureWithCompanion {
+  val enclosure: Enclosure = Summoner.summon
+}
+
+object TopLevelTraitEnclosureWithCompanion
+
 class TopLevelSubClassEnclosure extends TopLevelClassEnclosure {
   val subEnclosure: Enclosure = Summoner.summon
 }
@@ -52,11 +62,31 @@ class NestedClassInClassEnclosure {
   }
 }
 
-object NestedAnonymousClassEnclosure {
+object NestedAnonymousTraitInClassEnclosure {
 
-  val enclosure = (new NestedTrait {}).enclosure
+  val enclosure: Enclosure = (new NestedTrait {}).enclosure
 
   private sealed trait NestedTrait {
+    val enclosure: Enclosure = Summoner.summon
+  }
+}
+
+object NestedClassInClassInObjectEnclosure {
+  val enclosure: Enclosure = (new NestedClass).enclosure
+
+  private class NestedClass {
+    val enclosure: Enclosure = new NestedClassInClass().enclosure
+
+    class NestedClassInClass {
+      val enclosure: Enclosure = Summoner.summon
+    }
+
+  }
+}
+
+object NestedObjectInObjectEnclosure {
+
+  object ObjectInObject {
     val enclosure: Enclosure = Summoner.summon
   }
 }
