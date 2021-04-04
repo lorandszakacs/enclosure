@@ -136,9 +136,7 @@ object EnclosureMacros {
 
     @tailrec private def fullNameFromSymbol(sym: Symbol): String = {
       fullNameFromCompanionModule(sym) match {
-        case Some(name) =>
-          if (isPackageObject(name)) fullNameFromSymbol(sym.owner) else name
-        case _ if isPackageObject(sym) => fullNameFromSymbol(sym.owner)
+        case Some(name) => if (isPackageObject(name)) fullNameFromSymbol(sym.owner) else name
         case _ if isTopLevelDefinition(sym) => fullNameFromSymbol(sym.owner)
         case _ if isTopLevelTrait(sym) => sym.fullName
         case _  => 
