@@ -21,7 +21,7 @@ val Scala3RC2 = "3.0.0-RC2"
 //============================ publishing details =============================
 //=============================================================================
 
-ThisBuild / baseVersion  := "0.0.1"
+ThisBuild / baseVersion  := "0.1.0"
 ThisBuild / organization := "com.lorandszakacs"
 ThisBuild / homepage     := Option(url("https://github.com/lorandszakacs/enclosure"))
 
@@ -59,15 +59,15 @@ ThisBuild / spiewakCiReleaseSnapshots := false
 ThisBuild / spiewakMainBranches       := List("main")
 ThisBuild / Test / publishArtifact    := false
 
-ThisBuild / scalaVersion       := Scala3RC1
-ThisBuild / crossScalaVersions := List(Scala3RC1, Scala213, Scala212)
+ThisBuild / scalaVersion       := Scala213
+ThisBuild / crossScalaVersions := List(Scala3RC2, Scala3RC1, Scala213, Scala212)
 
 //required for binary compat checks
 ThisBuild / versionIntroduced := Map(
-  Scala212  -> "0.0.1",
-  Scala213  -> "0.0.1",
-  Scala3RC1 -> "0.0.1"
-  // Scala3RC2 -> "0.0.1"
+  Scala212  -> "0.1.0",
+  Scala213  -> "0.1.0",
+  Scala3RC1 -> "0.1.0",
+  Scala3RC2 -> "0.1.0"
 )
 
 //=============================================================================
