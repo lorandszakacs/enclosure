@@ -74,9 +74,9 @@ object EnclosureMacros {
 
     private def fullNameFromSymbol(sym: Symbol): String = {
 
-      /** the full name of package objects includes ".package" at the end.
-        * That's why we go one level up
-        */
+      /* the full name of package objects includes ".package" at the end.
+       * That's why we go one level up
+       */
       if (isPackageObject(sym)) {
         if (sym.owner.eq(null)) {
           ctx.abort(
