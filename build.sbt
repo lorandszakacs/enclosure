@@ -7,6 +7,9 @@ import sbtghactions.UseRef
 
 addCommandAlias("github-gen", "githubWorkflowGenerate")
 addCommandAlias("github-check", "githubWorkflowCheck")
+addCommandAlias("full-clean", ";++clean;++Test/clean")
+addCommandAlias("full-test", ";++clean;++Test/clean;++test")
+
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
 val Scala212  = "2.12.13"

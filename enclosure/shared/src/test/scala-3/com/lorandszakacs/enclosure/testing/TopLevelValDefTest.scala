@@ -18,7 +18,7 @@ package com.lorandszakacs.enclosure.testing
 
 import scala.language.adhocExtensions
 
-class TopLevelValDefTest extends EnclosureTest {
+class TopLevelValDefTest extends EnclosureTestSuite {
 
   test("topLevelEnclosureVal") {
     testEnclosureFullyQualified(topLevelEnclosureVal)(currentPackage)

@@ -16,10 +16,7 @@
 
 package com.lorandszakacs.enclosure.testing
 
-import munit.FunSuite
-import com.lorandszakacs.enclosure.Enclosure
-
-class EnclosureTest extends FunSuite {
+class EnclosureTest extends EnclosureTestSuite {
 
   test("TopLevelObjectEnclosure") {
     testEnclosure(TopLevelObjectEnclosure.enclosure)("TopLevelObjectEnclosure")
@@ -27,6 +24,11 @@ class EnclosureTest extends FunSuite {
 
   test("TopLevelClassEnclosure") {
     testEnclosure(new TopLevelClassEnclosure().enclosure)("TopLevelClassEnclosure")
+  }
+
+  test("TopLevelSubClassEnclosure") {
+    testEnclosure(new TopLevelSubClassEnclosure().enclosure)("TopLevelClassEnclosure")
+    testEnclosure(new TopLevelSubClassEnclosure().subEnclosure)("TopLevelSubClassEnclosure")
   }
 
   test("NestedClassInObjectEnclosure") {
@@ -66,29 +68,6 @@ class EnclosureTest extends FunSuite {
   test("NestedMethodEnclosure") {
     testEnclosure(NestedMethodEnclosure.enclosure0)("NestedMethodEnclosure")
     testEnclosure(NestedMethodEnclosure.enclosure1)("NestedMethodEnclosure")
-  }
-
-  //---------------------------------------------------------------------------
-
-  protected lazy val currentPackage: String = "com.lorandszakacs.enclosure.testing"
-
-  protected def testEnclosure(enc: Enclosure)(expParam: String)(implicit loc: munit.Location): Unit = {
-    val expected = s"$currentPackage.$expParam"
-    testEnclosureFullyQualified(enc)(expected)
-  }
-
-  protected def testEnclosureFullyQualified(enc: Enclosure)(expected: String)(implicit loc: munit.Location): Unit = {
-    assertEquals(
-      obtained = enc.fullModuleName,
-      expected = expected,
-      clue     = s"""|+++++++++++++++++++++++++++++++++++
-                     |
-                     |      expected = $expected     
-                     |      received = ${enc.fullModuleName}
-                     |
-                     |------------------------------------
-                     |""".stripMargin
-    )
   }
 
 }

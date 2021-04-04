@@ -30,6 +30,10 @@ class TopLevelClassEnclosure {
   val enclosure: Enclosure = Summoner.summon
 }
 
+class TopLevelSubClassEnclosure extends TopLevelClassEnclosure {
+  val subEnclosure: Enclosure = Summoner.summon
+}
+
 object NestedClassInObjectEnclosure {
 
   val enclosure = new NestedClass().enclosure
