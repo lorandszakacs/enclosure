@@ -1,23 +1,15 @@
 # enclosure
 
-Simple macro to generate an `case class Enclosure(fullModuleName: String)` data-type telling you in which module it was instantiated. Think, `log4s`, `log4cats` logger names based on the class/object/trait they were created in, but generalized, and useable outside of that context.
+Simple macro to generate an `case class Enclosure(fullModuleName: String)` data-type telling you in which module it was instantiated in. Think, `log4s` or `log4cats` logger names based on the class/object/trait they were created in, but generalized and useable outside of that context.
 
 Honestly, the library should be pretty stable and will most likely change only to support new Scala versions. But what do I know?
 
 ## getting started
 
-This library is published for Scala 3-0-0-RC2, 3-0-0-RC1, 2.13, 2.12, both on the JVM, and JS platforms.
+This library is published for Scala 3-0-0-RC2, 3-0-0-RC1, 2.13, 2.12, both on the JVM and JS platforms.
 
 ```scala
 libraryDependencies ++= "com.lorandszakacs" %% "enclosure" % "0.1.0"
-```
-
-### snapshots
-
-To fetch snapshots of the library add the following to your build:
-
-```scala
-resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 ```
 
 ## usage
@@ -30,7 +22,7 @@ This library provides one single type: `com.lorandszakacs.enclosure.Enclosure` w
 
 Simply add an implicit parameter to your methods/classes, and a macro will generate a value for `Enclosure` for you.
 
-Similar in usage to [`munit.Location`](https://github.com/scalameta/munit/blob/main/munit/shared/src/main/scala/munit/Location.scala), or [`org.tpolecat.SourcePos`](https://github.com/tpolecat/SourcePos)
+Similar in usage to [`munit.Location`](https://github.com/scalameta/munit/blob/main/munit/shared/src/main/scala/munit/Location.scala), or [`org.tpolecat.SourcePos`](https://github.com/tpolecat/SourcePos).
 
 ```scala
 package myapp
