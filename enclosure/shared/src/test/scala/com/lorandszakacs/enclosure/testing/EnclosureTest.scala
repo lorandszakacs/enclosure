@@ -85,6 +85,22 @@ class EnclosureTest extends EnclosureTestSuite {
     testEnclosureFullyQualified(packageLevelEnclosure)(currentPackage)
   }
 
+  test("SuperType") {
+    testEnclosure(new SuperType().enclosure)("SuperType")
+  }
+
+  test("SubType") {
+    testEnclosure(new SubType().enclosure)("SuperType")
+  }
+
+  test("SuperTrait") {
+    testEnclosure(new SuperTrait {}.enclosure)("SuperTrait")
+  }
+
+  test("SuperTraitImpl") {
+    testEnclosure(new SuperTraitImpl().enclosure)("SuperTrait")
+  }
+
   test("NestedMethodEnclosure") {
     testEnclosure(NestedMethodEnclosure.enclosure0)("NestedMethodEnclosure")
     testEnclosure(NestedMethodEnclosure.enclosure1)("NestedMethodEnclosure")

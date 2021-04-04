@@ -103,6 +103,18 @@ class HigherKindParameterizedClassEnclosure[F[_]] {
   val enclosure: Enclosure = Summoner.summon
 }
 
+class SuperType {
+  def enclosure: Enclosure = Summoner.summon
+}
+
+class SubType extends SuperType {}
+
+trait SuperTrait {
+  def enclosure: Enclosure = Summoner.summon
+}
+
+class SuperTraitImpl extends SuperTrait
+
 class EnclosureAsClassParam(implicit val enclosure: Enclosure)
 
 object NestedMethodEnclosure {
