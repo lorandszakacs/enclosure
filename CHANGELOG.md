@@ -8,3 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 # unreleased
 
 # 0.0.1
+
+First release!
+
+### Scala versions:
+
+- 2.12, JVM and JS
+- 2.13, JVM and JS
+- 3.0.0-RC1, JVM and JS
+- 3.0.0-RC2, JVM and JS
+
+### Dependencies
+
+- munit `0.7.23` - testing only

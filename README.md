@@ -1,11 +1,15 @@
 # enclosure
 
+Simple macro to generate an `case class Enclosure(fullModuleName: String)` data-type telling you in which module it was instantiated. Think, `log4s`, `log4cats` logger names based on the class/object/trait they were created in, but generalized, and useable outside of that context.
+
+Honestly, the library should be pretty stable and will most likely change only to support new Scala versions. But what do I know?
+
 ## getting started
 
 This library is published for Scala 3-0-0-RC2, 3-0-0-RC1, 2.13, 2.12, both on the JVM, and JS platforms.
 
 ```scala
-libraryDependencies ++= "com.lorandszakacs" %% "enclosure" % "0.0.1"
+libraryDependencies ++= "com.lorandszakacs" %% "enclosure" % "0.1.0"
 ```
 
 ### snapshots
