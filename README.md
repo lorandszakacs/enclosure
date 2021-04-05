@@ -38,14 +38,14 @@ object Printer {
 package myapp.module
 
 object Main extends App {
-  myapp.Printer("in main!")
+  myapp.Printer.locatedPrintln("in main!")
   // prints out:
   // [myapp.module.Main] in main!
   nestedMethod()
   // idem
 
   def nestedMethod(): Unit = {
-    myapp.Printer("in main!")
+    myapp.Printer.locatedPrintln("in main!")
   }
 }
 ```
