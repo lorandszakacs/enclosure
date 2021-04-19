@@ -108,8 +108,6 @@ lazy val enclosureJS = enclosure
   .js
 
 lazy val commonSettings = Seq(
-  //required for munit, see: https://scalameta.org/munit/docs/getting-started.html#quick-start
-  testFrameworks += new TestFramework("munit.Framework"),
   // Flag -source and -encoding set repeatedly
   // previous source flag set by one of the many plugins used
   scalacOptions := scalacOptions.value
