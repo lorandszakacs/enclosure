@@ -37,9 +37,9 @@ object EnclosureMacros {
     import ctx.reflect.*
 
     /** Where "module" is a:
-      * - class
-      * - object
-      * - package object
+      *   - class
+      *   - object
+      *   - package object
       */
     def getFullyQualifiedNameOfEnclosingModule: String = {
       val moduleSym: Symbol = findEnclosingModule(Symbol.spliceOwner)
@@ -59,11 +59,9 @@ object EnclosureMacros {
       }
     }
 
-    /** In the vast majority of cases we can get a clean, '$' free names by
-      * looking at the companion module.
+    /** In the vast majority of cases we can get a clean, '$' free names by looking at the companion module.
       *
-      * The exception cases are outlined below in the match statement at the
-      * call site to this method.
+      * The exception cases are outlined below in the match statement at the call site to this method.
       */
     private def fullNameFromCompanionModule(sym: Symbol): Option[String] = {
       if (sym.flags.is(Flags.Package)) {
@@ -81,8 +79,8 @@ object EnclosureMacros {
       }
     }
 
-    /** When the object name is taken from (sym: Symbol).companionModule.fullName,
-      * it does not contain the dollar character, it simply ends in .package
+    /** When the object name is taken from (sym: Symbol).companionModule.fullName, it does not contain the dollar
+      * character, it simply ends in .package
       *
       * N.B. (sym: Symbol).isPackageDef -- does not return true in this case!
       */
@@ -92,9 +90,8 @@ object EnclosureMacros {
 
     /** Scala 3 top level definitions in packages always end like this.
       *
-      * Scoured through the Quotes api using the debug method bellow,
-      * and couldn't find any better way to determine this (except maybe)
-      * the confluence of flags... which can show up in other places as well.
+      * Scoured through the Quotes api using the debug method bellow, and couldn't find any better way to determine this
+      * (except maybe) the confluence of flags... which can show up in other places as well.
       *
       * N.B. (sym: Symbol).isPackageDef -- does not return true in this case!
       */
@@ -102,24 +99,20 @@ object EnclosureMacros {
       sym.fullName.endsWith("$package$")
     }
 
-    /** Top level traits without a companion object should have a clean,
-      * dollar free name. If they have a companion object,
-      * then [[fullNameFromCompanionModule]] will return the proper name.
+    /** Top level traits without a companion object should have a clean, dollar free name. If they have a companion
+      * object, then [[fullNameFromCompanionModule]] will return the proper name.
       */
     private def isTopLevelTrait(sym: Symbol): Boolean = {
       val flags = sym.flags
       flags.is(Flags.Trait) && !flags.is(Flags.Local)
     }
 
-    /** Absolutely last ditch effort is to recurse through each part of the
-      * symbol and remove the dollar sign. I do not like this very much,
-      * honestly, since it seems extremely hacky. But there is no other way
-      * of dealing with nested classes/traits/objects that are nested
-      * only within _other objects_.
+    /** Absolutely last ditch effort is to recurse through each part of the symbol and remove the dollar sign. I do not
+      * like this very much, honestly, since it seems extremely hacky. But there is no other way of dealing with nested
+      * classes/traits/objects that are nested only within _other objects_.
       *
-      * Technically the sym.noSymbol check should never happen,
-      * but you never know :shrug:, better to not accidentally recurse
-      * infinitely becase sym.owner will happily return no symbol ad infinitum.
+      * Technically the sym.noSymbol check should never happen, but you never know :shrug:, better to not accidentally
+      * recurse infinitely becase sym.owner will happily return no symbol ad infinitum.
       */
     private def cleanObjectDollars(sym: Symbol): String = {
       if (sym.isNoSymbol) {

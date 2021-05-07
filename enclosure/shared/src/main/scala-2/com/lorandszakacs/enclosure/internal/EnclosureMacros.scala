@@ -37,9 +37,9 @@ object EnclosureMacros {
     import ctx.universe._
 
     /** Where "module" is a:
-      * - class
-      * - object
-      * - package object
+      *   - class
+      *   - object
+      *   - package object
       */
     def getFullyQualifiedNameOfEnclosingModule: String = {
       val moduleSym: Symbol = findEnclosingModule(enclosingOwner)
