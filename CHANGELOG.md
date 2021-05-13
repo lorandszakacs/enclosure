@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - add Scala `3.0.0` :party:, JVM and JS. Drop support for Scala `3.0.0-RC2` and `3.0.0-RC3`.
 
-### internals
+### internals:
+
 - bump sbt to `1.5.2`
 - bump `munit` to `0.7.26`
 - temporarily use `sbt-dotty` `0.5.5` to allow publishing to Scala 3.
