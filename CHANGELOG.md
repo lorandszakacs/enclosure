@@ -7,13 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+# 0.1.2
+
+- add Scala `3.0.0` :party:, JVM and JS. Drop support for Scala `3.0.0-RC2` and `3.0.0-RC3`.
+
+### internals
+- bump sbt to `1.5.2`
+- bump `munit` to `0.7.26`
+- temporarily use `sbt-dotty` `0.5.5` to allow publishing to Scala 3.
+
 # 0.1.1
 
-- add Scala 3.0.0-RC3, JVM and JS. Drop support for Scala 3.0.0-RC1
+- add Scala `3.0.0-RC3`, JVM and JS. Drop support for Scala `3.0.0-RC1`
 
 ### internals:
 
-- use scalafmt 3.0.0-RC1, finally, formatting for Scala 3 code!
+- use scalafmt `3.0.0-RC1`, finally, formatting for Scala 3 code!
 - bump `munit` to `0.7.25`
 
 # 0.1.0
@@ -22,10 +31,10 @@ First release!
 
 ### Scala versions:
 
-- 2.12, JVM and JS
-- 2.13, JVM and JS
-- 3.0.0-RC1, JVM and JS
-- 3.0.0-RC2, JVM and JS
+- `2.12`, JVM and JS
+- `2.13`, JVM and JS
+- `3.0.0-RC1`, JVM and JS
+- `3.0.0-RC2`, JVM and JS
 
 ### Dependencies
 
