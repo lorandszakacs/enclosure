@@ -6,7 +6,7 @@ Honestly, the library should be pretty stable and will most likely change only t
 
 ## getting started
 
-This library is published for Scala `3-0-0`, `2.13`, `2.12`, both on the JVM and JS platforms.
+This library is published for Scala `3.0.0`, `2.13`, `2.12`, both on the JVM and JS platforms.
 
 ```scala
 libraryDependencies ++= "com.lorandszakacs" %% "enclosure" % "0.1.2"
