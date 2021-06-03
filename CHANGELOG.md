@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+### internals:
+
+- bump sbt to `1.5.3`
+- bump Scala to `2.13.6` and `2.12.14` respectively
+- bump `sbt-spiewak` to `0.21.0`
+
 # 0.1.2
 
 - add Scala `3.0.0` :party:, JVM and JS. Drop support for Scala `3.0.0-RC2` and `3.0.0-RC3`.
