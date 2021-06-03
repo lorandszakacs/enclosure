@@ -5,8 +5,6 @@ import sbtghactions.UseRef
 //============================== build details ================================
 //=============================================================================
 
-addCommandAlias("github-gen", "githubWorkflowGenerate")
-addCommandAlias("github-check", "githubWorkflowCheck")
 addCommandAlias("full-clean", ";++clean;++Test/clean")
 addCommandAlias("full-test", ";++clean;++Test/clean;++test")
 
