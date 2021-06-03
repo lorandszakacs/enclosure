@@ -102,7 +102,6 @@ lazy val enclosureJVM = enclosure.jvm.settings(
 )
 
 lazy val enclosureJS = enclosure
-  .settings(dottyJsSettings(ThisBuild / crossScalaVersions))
   .jsSettings(
     scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule))
   )
