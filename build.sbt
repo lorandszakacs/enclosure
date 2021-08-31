@@ -73,7 +73,7 @@ ThisBuild / versionIntroduced := Map(
 //============================== Project details ==============================
 //=============================================================================
 // format: off
-val munitCatsEffectVersion     = "0.7.28"      // https://github.com/scalameta/munit/releases
+val munitCatsEffectVersion     = "0.7.29"      // https://github.com/scalameta/munit/releases
 // format: on
 
 lazy val root = project
