@@ -29,7 +29,7 @@ package com.lorandszakacs.enclosure
   * {{{
   *
   * package myapp
-  * import com.lorandszakacs.enclosure.
+  * import com.lorandszakacs.enclosure.Enclosure
   *
   * object Printer {
   *   def locatedPrintln(s: String)(implicit enc: Enclosure): Unit =  {
