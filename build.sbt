@@ -55,7 +55,7 @@ ThisBuild / githubWorkflowJavaVersions := Seq(PrimaryJava, LTSJava, GraalVM11)
 //============================== Project details ==============================
 //=============================================================================
 // format: off
-val munitVersion      = "0.7.23"      // https://github.com/scalameta/munit/releases
+val munitVersion      = "1.0.0-M1"      // https://github.com/scalameta/munit/releases
 // format: on
 
 lazy val root = tlCrossRootProject.aggregate(enclosure)

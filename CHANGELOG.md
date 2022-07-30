@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### internals:
 
 - bump sbt to `1.7.1`
+- bump munit to `1.0.0-M1`
 - replace `sbt-spiewak` with `sbt-typelevel`
 
 # 0.1.2

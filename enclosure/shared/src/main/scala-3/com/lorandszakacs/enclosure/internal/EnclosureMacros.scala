@@ -49,7 +49,7 @@ object EnclosureMacros {
     @tailrec private def findEnclosingModule(sym: Symbol): Symbol = {
       sym match {
         case s if s.isNoSymbol                   =>
-          report.throwError(
+          report.errorAndAbort(
             s"Enclosure requires an enclosing class, object, or package. But couldn't find one. We are at: ${sym.toString()}"
           )
         case s if s.isClassDef || s.isPackageDef => s
