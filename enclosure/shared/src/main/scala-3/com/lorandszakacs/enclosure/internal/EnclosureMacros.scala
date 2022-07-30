@@ -28,7 +28,7 @@ trait EnclosureMacros {
 object EnclosureMacros {
 
   def enclosure_impl(using ctx: Quotes): Expr[Enclosure] = {
-    val helpers    = new EnclosingModuleHelpers(using ctx)
+    val helpers = new EnclosingModuleHelpers(using ctx)
     val moduleName = Expr(helpers.getFullyQualifiedNameOfEnclosingModule)
     '{ Enclosure($moduleName) }
   }
@@ -48,13 +48,13 @@ object EnclosureMacros {
 
     @tailrec private def findEnclosingModule(sym: Symbol): Symbol = {
       sym match {
-        case s if s.isNoSymbol                   =>
+        case s if s.isNoSymbol =>
           report.errorAndAbort(
             s"Enclosure requires an enclosing class, object, or package. But couldn't find one. We are at: ${sym.toString()}"
           )
         case s if s.isClassDef || s.isPackageDef => s
         case other                               =>
-          //TODO: gather all methods along the way so that we can fill in that information as well
+          // TODO: gather all methods along the way so that we can fill in that information as well
           findEnclosingModule(other.owner)
       }
     }
@@ -66,13 +66,11 @@ object EnclosureMacros {
     private def fullNameFromCompanionModule(sym: Symbol): Option[String] = {
       if (sym.flags.is(Flags.Package)) {
         Option(sym.fullName)
-      }
-      else {
+      } else {
         val companionModule = sym.companionModule
         if (companionModule.isNoSymbol) {
           Option.empty
-        }
-        else {
+        } else {
           val companionModuleFN = companionModule.fullName
           if (companionModuleFN.contains("$")) Option.empty else Option(companionModuleFN)
         }
@@ -118,8 +116,7 @@ object EnclosureMacros {
       if (sym.isNoSymbol) {
         reportBug(sym, what = "noSymbol", returnedValue = "")
         ""
-      }
-      else if (sym.flags.is(Flags.Package))
+      } else if (sym.flags.is(Flags.Package))
         sym.fullName
       else
         s"${cleanObjectDollars(sym.owner)}.${sym.name.stripSuffix("$")}"

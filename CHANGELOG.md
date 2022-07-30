@@ -15,9 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### internals:
 
+- bump scalafmt to `3.5.8`, use less vertical alignment
 - bump sbt to `1.7.1`
 - bump munit to `1.0.0-M1`
-- replace `sbt-spiewak` with `sbt-typelevel`
+- replace `sbt-spiewak` with `sbt-typelevel`. Also remove all sbt-plugins that are included in the latter.
 
 # 0.1.2
 

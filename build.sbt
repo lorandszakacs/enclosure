@@ -47,9 +47,13 @@ ThisBuild / tlVersionIntroduced := Map(
 
 val PrimaryJava = JavaSpec.temurin("8")
 val LTSJava = JavaSpec.temurin("17")
-val GraalVM11 = JavaSpec.graalvm("11")
 
-ThisBuild / githubWorkflowJavaVersions := Seq(PrimaryJava, LTSJava, GraalVM11)
+ThisBuild / githubWorkflowJavaVersions := Seq(PrimaryJava, LTSJava)
+
+ThisBuild / tlCiHeaderCheck := true
+ThisBuild / tlCiScalafmtCheck := true
+ThisBuild / tlCiScalafixCheck := false
+ThisBuild / tlCiMimaBinaryIssueCheck := true
 
 //=============================================================================
 //============================== Project details ==============================
