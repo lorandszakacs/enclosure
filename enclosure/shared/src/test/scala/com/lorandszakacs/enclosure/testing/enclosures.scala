@@ -126,9 +126,9 @@ object NestedMethodEnclosure {
   }
 
   private def nestedMethod1(p1: String): Enclosure = {
-    //we do this to get rid of unused param warning. Once scala 2.12 support is dropped, we can add the nowarn annotation instead
+    // we do this to get rid of unused param warning. Once scala 2.12 support is dropped, we can add the nowarn annotation instead
     val opt = for {
-      _   <- Option(p1.toString())
+      _ <- Option(p1.toString())
       enc <- Option(Summoner.summon)
     } yield enc
     opt.get

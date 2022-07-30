@@ -34,7 +34,7 @@ class EnclosureTestSuite extends FunSuite {
     assertEquals(
       obtained = enc.fullModuleName,
       expected = expected,
-      clue     = s"""|+++++++++++++++++++++++++++++++++++
+      clue = s"""|+++++++++++++++++++++++++++++++++++
                      |
                      |      expected = $expected     
                      |      received = ${enc.fullModuleName}

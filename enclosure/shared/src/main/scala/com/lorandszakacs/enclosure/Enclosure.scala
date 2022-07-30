@@ -29,7 +29,7 @@ package com.lorandszakacs.enclosure
   * {{{
   *
   * package myapp
-  * import com.lorandszakacs.enclosure.
+  * import com.lorandszakacs.enclosure.Enclosure
   *
   * object Printer {
   *   def locatedPrintln(s: String)(implicit enc: Enclosure): Unit =  {
@@ -59,7 +59,7 @@ package com.lorandszakacs.enclosure
   *   - within a package (object) the name will be the package name
   */
 final case class Enclosure(
-  fullModuleName: String
+    fullModuleName: String
 )
 
 object Enclosure extends internal.EnclosureMacros
