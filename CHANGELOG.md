@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+# 1.0.0
+
+Stable, LTS release. There's little reason for the library to change API/semantics any time soon. Scala steward maintenance for the forseable future.
+
 ### Scala versions:
 
 - `2.12.15`, JVM and JS

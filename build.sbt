@@ -16,7 +16,7 @@ val Scala3 = "3.1.1"
 //=============================================================================
 
 // https://typelevel.org/sbt-typelevel/faq.html#what-is-a-base-version-anyway
-ThisBuild / tlBaseVersion := "0.1"
+ThisBuild / tlBaseVersion := "1.0"
 ThisBuild / organization := "com.lorandszakacs"
 ThisBuild / organizationName := "Loránd Szakács"
 ThisBuild / homepage := Option(url("https://github.com/lorandszakacs/enclosure"))

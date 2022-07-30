@@ -6,10 +6,10 @@ Honestly, the library should be pretty stable and will most likely change only t
 
 ## getting started
 
-This library is published for Scala `3.0.0`, `2.13`, `2.12`, both on the JVM and JS platforms.
+This library is published for Scala `3`, `2.13`, `2.12`, both on the JVM and JS platforms.
 
 ```scala
-libraryDependencies ++= "com.lorandszakacs" %% "enclosure" % "0.1.2"
+libraryDependencies ++= "com.lorandszakacs" %% "enclosure" % "1.0.0"
 ```
 
 ## usage
@@ -38,18 +38,19 @@ object Printer {
 package myapp.module
 
 object Main extends App {
-  myapp.Printer.locatedPrintln("in main!")
+  myapp.Printer.locatedPrintln("calling from main!")
   // prints out:
-  // [myapp.module.Main] in main!
+  // [myapp.module.Main] calling from main!
   nestedMethod()
-  // idem
+  // prints out:
+  // [myapp.module.Main] calling from nestedMethod in main!
 
   def nestedMethod(): Unit = {
-    myapp.Printer.locatedPrintln("in main!")
+    myapp.Printer.locatedPrintln("calling from nestedMethod!")
   }
 }
 ```
 
 ## motivation
 
-The library was created to generalize, and make available to end-users, the `log4s`, `log4cats` logger name from enclosing class behavior. But it can obviously find itself other usages now as well.
+The library was created to generalize, and make available the often copy-pasted way of getting this name in logging libraries via macros. This was is composable, and data-type driven, while macros just make generating the data-type easier.
