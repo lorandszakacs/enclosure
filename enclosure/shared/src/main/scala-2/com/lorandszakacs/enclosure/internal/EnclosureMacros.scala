@@ -28,7 +28,7 @@ object EnclosureMacros {
 
   def enclosure_impl(c: blackbox.Context): c.Expr[Enclosure] = {
     import c.universe._
-    val helpers    = new EnclosingModuleHelpers(c)
+    val helpers = new EnclosingModuleHelpers(c)
     val moduleName = helpers.getFullyQualifiedNameOfEnclosingModule
     c.Expr[Enclosure](q"_root_.com.lorandszakacs.enclosure.Enclosure(${moduleName})")
   }
@@ -48,14 +48,14 @@ object EnclosureMacros {
 
     @tailrec private def findEnclosingModule(sym: Symbol): Symbol = {
       sym match {
-        case NoSymbol                     =>
+        case NoSymbol =>
           ctx.abort(
             ctx.enclosingPosition,
             s"Enclosure requires an enclosing class, object, or package. But couldn't find one. We are at: ${sym.toString()}"
           )
         case c if c.isModule || c.isClass => c
         case other                        =>
-          //TODO: gather all methods along the way so that we can fill in that information as well
+          // TODO: gather all methods along the way so that we can fill in that information as well
           findEnclosingModule(other.owner)
       }
     }
@@ -83,10 +83,8 @@ object EnclosureMacros {
             ctx.enclosingPosition,
             s"We have a package object $sym, yet its owner is somehow null. This is most certainly something extremely peculiar. File an issue and reproduction please"
           )
-        }
-        else sym.owner.fullName
-      }
-      else {
+        } else sym.owner.fullName
+      } else {
         val classSymbol: ClassSymbol = (if (sym.isModule) sym.asModule.moduleClass else sym).asClass
         classSymbol.fullName
       }

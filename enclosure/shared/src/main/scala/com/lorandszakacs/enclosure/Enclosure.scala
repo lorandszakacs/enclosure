@@ -59,7 +59,7 @@ package com.lorandszakacs.enclosure
   *   - within a package (object) the name will be the package name
   */
 final case class Enclosure(
-  fullModuleName: String
+    fullModuleName: String
 )
 
 object Enclosure extends internal.EnclosureMacros
