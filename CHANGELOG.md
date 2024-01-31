@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+### Scala versions:
+
+- `2.12.18`, JVM and JS
+- `2.13.12`, JVM and JS
+- `3.3.1`, JVM and JS
+
+### internals:
+- bump sbt-scalajs to `1.15.0`
+- bump sbt-scalafmt to `2.5.2`
+- bump scalafmt to `3.7.17`
+- bump sbt to `1.9.8`
+- bump munit to `1.0.0-M10`
+- bump sbt-typelevel tp `0.6.5`
+
 # 1.0.0
 
 Stable, LTS release. There's little reason for the library to change API/semantics any time soon. Scala steward maintenance for the forseable future.

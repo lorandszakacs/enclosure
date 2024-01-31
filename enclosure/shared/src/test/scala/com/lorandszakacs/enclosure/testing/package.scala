@@ -17,7 +17,6 @@
 package com.lorandszakacs.enclosure
 
 package object testing {
-  import com.lorandszakacs.enclosure.Enclosure
 
   val packageLevelEnclosure: Enclosure = Summoner.summon
 
