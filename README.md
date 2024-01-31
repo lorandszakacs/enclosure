@@ -6,10 +6,15 @@ Honestly, the library should be pretty stable and will most likely change only t
 
 ## getting started
 
-This library is published for Scala `3`, `2.13`, `2.12`, both on the JVM and JS platforms.
+This library is published for Scala `3`, `2.13`, `2.12`, on JVM, JS, and Native platforms.
 
 ```scala
-libraryDependencies ++= "com.lorandszakacs" %% "enclosure" % "1.0.0"
+libraryDependencies ++= "com.lorandszakacs" %% "enclosure" % "1.1.0"
+```
+
+When you are also cross-compiling on JS and Native platform. [Don't forget an extra percentage sign](https://youforgotapercentagesignoracolon.com/):
+```scala
+libraryDependencies ++= "com.lorandszakacs" %%% "enclosure" % "1.1.0"
 ```
 
 ## usage
