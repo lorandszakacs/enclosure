@@ -54,6 +54,7 @@ ThisBuild / tlCiHeaderCheck := true
 ThisBuild / tlCiScalafmtCheck := true
 ThisBuild / tlCiScalafixCheck := false
 ThisBuild / tlCiMimaBinaryIssueCheck := true
+ThisBuild / tlCiReleaseBranches := List.empty // we do not release snapshot versions
 
 //=============================================================================
 //============================== Project details ==============================
@@ -64,7 +65,7 @@ val munitVersion      = "1.0.0-M10"      // https://github.com/scalameta/munit/r
 
 lazy val root = tlCrossRootProject.aggregate(enclosure)
 
-lazy val enclosure = crossProject(JVMPlatform, JSPlatform)
+lazy val enclosure = crossProject(JVMPlatform, JSPlatform, NativePlatform)
   .crossType(CrossType.Full)
   .in(file("enclosure"))
   .settings(
@@ -75,6 +76,9 @@ lazy val enclosure = crossProject(JVMPlatform, JSPlatform)
   )
   .settings(macroSettings)
   .settings(scala3Flags)
+  .nativeSettings(
+    tlVersionIntroduced := List("2.12", "2.13", "3").map(_ -> "1.1.0").toMap
+  )
 
 lazy val macroSettings = Seq(
   libraryDependencies ++= {

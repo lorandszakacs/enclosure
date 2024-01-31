@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+Cross publish to Scala Native!
+
 ### Scala versions:
 
-- `2.12.18`, JVM and JS
-- `2.13.12`, JVM and JS
-- `3.3.1`, JVM and JS
+- `2.12.18`, JVM, JS, Native
+- `2.13.12`, JVM, JS, Native
+- `3.3.1`, JVM, JS, Native
 
 ### internals:
 - bump sbt-scalajs to `1.15.0`
@@ -19,7 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - bump scalafmt to `3.7.17`
 - bump sbt to `1.9.8`
 - bump munit to `1.0.0-M10`
-- bump sbt-typelevel tp `0.6.5`
+- bump sbt-typelevel to `0.6.5`
+- introduce sbt-scala-native `0.4.17`
+- introduce sbt-scala-native-crossproject `1.3.2`
 
 # 1.0.0
 
