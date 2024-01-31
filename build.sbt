@@ -50,6 +50,7 @@ val LTSJava = JavaSpec.temurin("17")
 
 ThisBuild / githubWorkflowJavaVersions := Seq(PrimaryJava, LTSJava)
 
+ThisBuild / tlSonatypeUseLegacyHost := true // we still publish to legacy host https://central.sonatype.org/news/20210223_new-users-on-s01/#why-are-we-doing-this
 ThisBuild / tlCiHeaderCheck := true
 ThisBuild / tlCiScalafmtCheck := true
 ThisBuild / tlCiScalafixCheck := false
