@@ -54,6 +54,7 @@ ThisBuild / tlCiHeaderCheck := true
 ThisBuild / tlCiScalafmtCheck := true
 ThisBuild / tlCiScalafixCheck := false
 ThisBuild / tlCiMimaBinaryIssueCheck := true
+ThisBuild / tlCiReleaseBranches := List.empty // we do not release snapshot versions
 
 //=============================================================================
 //============================== Project details ==============================
