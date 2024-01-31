@@ -8,4 +8,4 @@ Everyone is expected to follow the [Scala Code of Conduct](https://www.scala-lan
 
 Any questions, concerns, or moderation requests please contact a member of the project.
 
-- Loránd Szakács [Email](mailto:lorand.szakacs@protonmail.com) [Twitter](https://twitter.com/lorand_szakacs) [GitHub / Gitter](https://github.com/lorandszakacs)
+- Loránd Szakács [Email](mailto:lorand.szakacs@protonmail.com) [GitHub](https://github.com/lorandszakacs)
