@@ -61,7 +61,7 @@ ThisBuild / tlCiReleaseBranches := List.empty // we do not release snapshot vers
 //============================== Project details ==============================
 //=============================================================================
 // format: off
-val munitVersion      = "1.0.0-M10"      // https://github.com/scalameta/munit/releases
+val munitVersion      = "1.0.0-M11"      // https://github.com/scalameta/munit/releases
 // format: on
 
 lazy val root = tlCrossRootProject.aggregate(enclosure)
