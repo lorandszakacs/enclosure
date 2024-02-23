@@ -16,7 +16,7 @@ val Scala3 = "3.3.1"
 //=============================================================================
 
 // https://typelevel.org/sbt-typelevel/faq.html#what-is-a-base-version-anyway
-ThisBuild / tlBaseVersion := "1.0"
+ThisBuild / tlBaseVersion := "1.1"
 ThisBuild / organization := "com.lorandszakacs"
 ThisBuild / organizationName := "Loránd Szakács"
 ThisBuild / homepage := Option(url("https://github.com/lorandszakacs/enclosure"))
@@ -61,7 +61,7 @@ ThisBuild / tlCiReleaseBranches := List.empty // we do not release snapshot vers
 //============================== Project details ==============================
 //=============================================================================
 // format: off
-val munitVersion      = "1.0.0-M10"      // https://github.com/scalameta/munit/releases
+val munitVersion      = "1.0.0-M11"      // https://github.com/scalameta/munit/releases
 // format: on
 
 lazy val root = tlCrossRootProject.aggregate(enclosure)
