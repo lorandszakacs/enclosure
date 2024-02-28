@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Scala versions:
 
 - `2.12.19`, JVM, JS, Native
-- `2.13.12`, JVM, JS, Native
+- `2.13.13`, JVM, JS, Native
 - `3.3.1`, JVM, JS, Native
 
 ### internals:
