@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - bump scalafmt to `3.8.0`
 - bump sbt to `1.9.9`
 - bump munit to `1.0.0-M11`
-- bump sbt-typelevel to `0.6.6`
+- bump sbt-typelevel to `0.6.7`
 
 # 1.1.0
 
