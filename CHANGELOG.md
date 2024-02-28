@@ -7,11 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # unreleased
 
+### Scala versions:
+
+- `2.12.19`, JVM, JS, Native
+- `2.13.13`, JVM, JS, Native
+- `3.3.1`, JVM, JS, Native
+
 ### internals:
 - bump scalafmt to `3.8.0`
 - bump sbt to `1.9.9`
 - bump munit to `1.0.0-M11`
-- bump sbt-typelevel to `0.6.6`
+- bump sbt-typelevel to `0.6.7`
 
 # 1.1.0
 
