@@ -8,7 +8,7 @@ addCommandAlias("full-test", ";+clean;+Test/clean;+test")
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
 val Scala212 = "2.12.19"
-val Scala213 = "2.13.13"
+val Scala213 = "2.13.14"
 val Scala3 = "3.3.1"
 
 //=============================================================================
